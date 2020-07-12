@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SEU-UNC</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    
+    <!--
+        Este ejemplo acompaña al post https://www.campusmvp.es/recursos/post/como-hacer-un-slider-sencillo-con-html-y-css-sin-javascript.aspx
+        del blog decampusMVP
+    -->
+
+    <style>
+        ul, li {
+        padding: 0;
+        margin: 0;
+        list-style: none inside;
+        }
+
+        ul.slider {
+        position: relative;
+        }
+
+        ul.slider li {
+        opacity: 0;
+        transition: opacity .5s;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        margin: 50px;
+        padding: 50px;
+        border: 2px solid red;
+        background: #fff;
+        }
+
+        ul.slider li:first-child {
+            opacity: 1;
+        }
+
+        ul.slider li:target {
+            opacity: 1;
+        }
+
+        nav {
+        position: relative;
+        top: 200px;
+        left: 50px;
+        }
+
+
+        /* 
+           A partir de aquí el CSS es puro diseño visual para hacer una versión más vistosa.
+           Puedes comentarlo si te resulta más fácil estudiar el ejemplo en su versión más sencilla
+
+        */
+
+
+        body, html {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow:hidden;
+        }
+
+        ul, li {
+        box-sizing: border-box;
+        }
+
+        ul.slider {
+        padding: 30px;
+        }
+
+        ul.slider li {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background-color: gray;
+        opacity: 0;
+        transition: opacity .5s;
+        padding-top: 30vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: bold;
+        font-size: calc( 1.5rem + 1vw );
+        text-align: center;
+        }
+
+        #slide1 {
+        background-color: #ffffff;
+        color: #fff;
+        }
+
+        #slide2 {
+        background-color: #ffffff;
+        color: #00324b;
+        }
+
+        #slide3 {
+        background-color: #ffffff;
+        color: #00324b;
+        }
+
+        #slide4 {
+        background-color: #ffffff;
+        color: #65bce8;
+        }
+
+        #slide5 {
+        background-color: #ffffff;
+        color: #00324b;
+        }
+
+        nav {
+        width: 100vw;
+        position: absolute;
+        top: auto;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #f1f2f3;
+        }
+
+        nav ul {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        }
+
+        nav ul li {
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        box-sizing: border:box;
+        }
+
+        nav a {
+        font-size: calc( 1.2rem + 1vw );
+        text-decoration: none;
+        font-weight: bold;
+        color: #490552;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.8;
+        flex-grow: 1;
+        text-align: center;
+        border-top: 1px solid #490552;
+        border-right: 1px solid #490552;
+        flex-wrap: wrap;
+        position: relative;
+        }
+
+        nav li:last-child a {
+        border-right: 0;
+        }
+
+        nav a:hover {
+        background-color: #490552;
+        color: #fff;
+        border-top-color: #490552;
+        }
+
+        nav a:active {
+        border-top-color: #BDBDBD;
+        background: #490552;
+        color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+	 <p><img src="img/Logo CSE 300x100.jpg" width="300" height="100" alt=""/></p>
+<p><img src="img/nombre.png" width="50" height="50" alt=""/> <strong>Nombre:&nbsp;Fundación Banco de Alimentos Córdoba</strong> </p>
+<p><img src="img/codigo.png" width="50" height="50" alt=""/> <strong>Código CSE:&nbsp;201900249; 201900230; 201800037</strong> </p>
+<p><img src="img/direccion.png" width="50" height="50" alt=""/> <strong>Dirección:&nbsp;Av. de la Semillería 1552. Córdoba</strong> </p>
+<p><img src="img/email.png" width="50" height="50" alt=""/> <strong>Email:&nbsp;info@bancodealimentoscba.org.ar</strong> </p>
+<p><img src="img/web.png" width="50" height="50" alt=""/> <strong>Sitio Web:&nbsp;http://bancodealimentoscba.org.ar/</strong></p>
+<p><img src="img/codigoproyecto.png" width="50" height="50" alt=""/> <strong>Código de proyectos vinculados:&nbsp;068</strong> </p>
+    <ul class="slider">
+      <li id="slide1"><img src="img/01.jpg" width="350" height="200" alt=""/></li>
+        <li id="slide2"><img src="img/02.jpg" width="350" height="200" alt=""/></li>
+        <li id="slide3"><img src="img/03.jpg" width="350" height="200" alt=""/></li>
+        <li id="slide4"><img src="img/04.jpg" width="350" height="200" alt=""/></li>
+        <li id="slide5"><img src="img/05.jpg" width="350" height="200" alt=""/></li>
+    </ul>
+    <nav>
+        <ul class="menu">
+            <li><a href="#slide1"><img src="img/camera.png" width="50" height="50" alt=""/></a></li>
+            <li><a href="#slide2"><img src="img/camera.png" width="50" height="50" alt=""/></a></li>
+            <li><a href="#slide3"><img src="img/camera.png" width="50" height="50" alt=""/></a></li>
+            <li><a href="#slide4"><img src="img/camera.png" width="50" height="50" alt=""/></a></li>
+            <li><a href="#slide5"><img src="img/camera.png" width="50" height="50" alt=""/></a></li>
+        </ul>
+    </nav>
+</body>
+</html>
